@@ -73,12 +73,6 @@ p {
     text-align: center;
 }
 
-/* img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-} */
-
 button {
     cursor: pointer;
 }
@@ -343,6 +337,19 @@ a {
     color: var(--grayish-blue);
 }
 
+/* Gallery */
+.design-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.design-gallery img {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+/* Attribution */
 .attribution {
     font-size: 11px;
     text-align: center;
@@ -454,6 +461,10 @@ a {
     .card {
         padding-inline: 0.8rem;
         margin-top: 2rem;
+    }
+
+    .design-gallery {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
