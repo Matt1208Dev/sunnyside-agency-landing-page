@@ -283,6 +283,66 @@ a {
     background-image: url(./images/desktop/image-photography.jpg);
 }
 
+.testimonials {
+    min-height: 48.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: 3rem;
+}
+
+.testimonials h3 {
+    text-transform: uppercase;
+    font-size: clamp(1rem, 4vw,1.3rem);
+    color: var(--grayish-blue);
+    letter-spacing: 5px;
+    margin-block: 1rem;
+}
+
+/* Testimonials */
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 375px;
+    height: 375px;
+    padding-inline: 1.5rem;
+    /* margin-top: 0.5rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card img {
+    width: 4.5rem;
+    height: auto;
+    border-radius: 50%;
+    margin-block: clamp(2rem, 8vw, 4rem);
+}
+
+.card p {
+    margin-bottom: 0;
+}
+
+.client {
+    margin-block: clamp(1.5rem, 3vw, 4rem);
+}
+
+.client-name {
+    font-family: var(--fraunces);
+    color: var(--very-dark-desaturated-blue);
+}
+
+.client-job {
+    font-size: 0.9rem;
+    color: var(--grayish-blue);
+}
+
 .attribution {
     font-size: 11px;
     text-align: center;
@@ -389,6 +449,11 @@ a {
 
     .services p {
         margin-bottom: clamp(2rem, 5vw, 4rem);
+    }
+
+    .card {
+        padding-inline: 0.8rem;
+        margin-top: 2rem;
     }
 }
 
