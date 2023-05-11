@@ -1,5 +1,7 @@
 /* CSS Reset */
-*, ::before, ::after {
+*,
+::before,
+::after {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -42,12 +44,26 @@ h1 {
     text-transform: uppercase;
     font-family: var(--fraunces);
     color: var(--white);
-    font-size: clamp(2.5rem, 9vw,3.5rem);
+    font-size: clamp(2.5rem, 9vw, 3.5rem);
     letter-spacing: 8px;
+}
+
+h2 {
+    font-family: var(--fraunces);
+    color: var(--very-dark-desaturated-blue);
+    font-size: clamp(2rem, 8vw, 2.5rem);
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
 p {
     font-size: 1.125rem;
+    font-family: var(--barlow);
+    font-weight: var(--semiBold);
+    color: var(--dark-grayish-blue);
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    text-align: center;
 }
 
 /* img {
@@ -67,6 +83,42 @@ a {
     text-decoration: none;
 }
 
+.btn {
+    position: relative;
+    font-family: var(--fraunces);
+    font-size: 1rem;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: none;
+    padding: 0 0.6rem;
+    z-index: 1;
+}
+
+.btn::after {
+    content: "";
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    opacity: 0.3;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    z-index: -1;
+    transition: opacity 0.2s ease-out;
+}
+
+.btn:hover::after {
+    opacity: 1;
+}
+
+.btn-yellow::after {
+    background-color: var(--yellow);
+}
+
+.btn-red::after {
+    background-color: var(--soft-red);
+}
+
 /* Navbar */
 .navbar {
     position: absolute;
@@ -74,7 +126,7 @@ a {
     top: 0;
     left: 0;
     width: 100%;
-    height: clamp(5.5rem, 10vw,8.125rem); /* 88px / 130px */
+    height: clamp(5.5rem, 10vw, 8.125rem); /* 88px / 130px */
     padding-inline: clamp(1.25rem, 5vw, 2.375rem); /* 20px / 38px */
     background-color: transparent;
     display: flex;
@@ -108,13 +160,14 @@ a {
     text-transform: uppercase;
 }
 
-.cta, .cta a {
+.cta,
+.cta a {
     transition: all 0.4s ease-out;
     font-size: 1rem;
 }
 
 .cta:hover {
-    background-color: rgba(255,255,255, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .cta:hover a {
@@ -123,6 +176,10 @@ a {
 
 .toggle-menu-btn {
     cursor: pointer;
+}
+
+.main-container {
+    width: 100%;
 }
 
 /* Hero */
@@ -152,6 +209,43 @@ a {
     object-fit: cover;
 }
 
+.benefits, .our-team {
+    display: flex;
+}
+
+.benefits {
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.benefits__txt, .our-team__txt {
+    min-width: 375px;
+    max-width: 720px;
+    flex-basis: 27.25rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* padding-inline-start: 1.75rem; */
+    padding-inline: 0.9rem;
+}
+
+.benefits__img, .our-team__img {
+    flex-grow: 1;
+    max-width: 720px;
+    height: auto;
+    object-fit: cover;
+}
+
+.benefits img, .our-team img {
+    width: 100%;
+}
+
+.our-team {
+    flex-direction: column;
+    align-items: center;
+}
 
 .attribution {
     font-size: 11px;
@@ -159,6 +253,12 @@ a {
 }
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+
+@media screen and (width <= 720px) {
+    .benefits {
+        flex-direction: column-reverse;
+    }
 }
 
 @media screen and (width < 1024px) {
@@ -170,7 +270,7 @@ a {
         top: 120%;
         left: clamp(1.25rem, 5vw, 2.375rem); /* 20px / 38px */
         right: clamp(1.25rem, 5vw, 2.375rem); /* 20px / 38px */
-        height: 19rem; /* 538px */ 
+        height: 19rem; /* 538px */
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -197,7 +297,7 @@ a {
         top: -0.75rem;
         transform: skewY(-45deg);
     }
-    
+
     nav .navlink {
         color: var(--dark-grayish-blue);
     }
@@ -213,6 +313,55 @@ a {
     }
 
     .hero-title {
-        top: 12.5rem;
+        top: 12.5rem; /* 200px */
+    }
+
+    .benefits, .our-team {
+        flex-direction: row;
+    }
+
+    .benefits__txt, 
+    .benefits__img,
+    .our-team__txt,
+    .our-team__img {
+        flex-basis: 512px;
+        flex-grow: 1;
+    }
+
+    .benefits__txt, .our-team__txt {
+        /* width: 50%; */
+        padding-inline: 6.75rem; /* 108px */ 
+    }
+    
+    .benefits__txt, .our-team__txt {
+        align-items: start;
+    }
+
+    .benefits__txt h2,
+    .benefits__txt p,
+    .our-team__txt h2,
+    .our-team__txt p {
+        text-align: start;
+    }
+
+    /* .our-team__txt > * {
+        margin-bottom: 1rem;
+    } */
+
+@media screen and (width >= 1200px) {
+    .benefits__txt {
+        /* width: 50%; */
+        padding-inline-start: 10.25rem; /* 164px */
+    }
+
+    .our-team__txt {
+        padding-right: 10.25rem; /* 128px */
+    }
+
+    .our-team__txt h2 {
+        margin-bottom: 2rem;
+    }
+    .our-team__txt p {
+        margin-bottom: 2.5rem;
     }
 }
