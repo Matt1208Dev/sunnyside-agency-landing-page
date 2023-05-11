@@ -56,6 +56,13 @@ h2 {
     text-align: center;
 }
 
+h3 {
+    font-family: var(--fraunces);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
 p {
     font-size: 1.125rem;
     font-family: var(--barlow);
@@ -209,7 +216,7 @@ a {
     object-fit: cover;
 }
 
-.benefits, .our-team {
+.benefits, .our-team, .services {
     display: flex;
 }
 
@@ -218,7 +225,10 @@ a {
     align-items: center;
 }
 
-.benefits__txt, .our-team__txt {
+.benefits__txt,
+.our-team__txt,
+.services__design,
+.services__photography {
     min-width: 375px;
     max-width: 720px;
     flex-basis: 27.25rem;
@@ -242,9 +252,35 @@ a {
     width: 100%;
 }
 
-.our-team {
+.our-team, .services {
     flex-direction: column;
     align-items: center;
+}
+
+.services__design,
+.services__photography {
+    height: 100%;
+    min-height: 37.5rem; /* 600px */
+    justify-content: end;
+    background-position: top center;
+}
+
+.services p {
+    margin-bottom: 3.5rem;
+    font-size: 1rem;
+}
+.services__design > * {
+    color: var(--dark-desaturated-cyan);
+}
+
+.services__photography > * {
+    color: var(--dark-blue);
+}
+.services__design {
+    background-image: url(./images/desktop/image-graphic-design.jpg);
+}
+.services__photography {
+    background-image: url(./images/desktop/image-photography.jpg);
 }
 
 .attribution {
@@ -316,14 +352,16 @@ a {
         top: 12.5rem; /* 200px */
     }
 
-    .benefits, .our-team {
+    .benefits, .our-team, .services {
         flex-direction: row;
     }
 
     .benefits__txt, 
     .benefits__img,
     .our-team__txt,
-    .our-team__img {
+    .our-team__img
+    .services__design,
+    .services__photography {
         flex-basis: 512px;
         flex-grow: 1;
     }
@@ -344,9 +382,15 @@ a {
         text-align: start;
     }
 
-    /* .our-team__txt > * {
-        margin-bottom: 1rem;
-    } */
+    .services__design,
+    .services__photography {
+        padding-inline: clamp(6rem, 13.1vw, 11.5rem);
+    }
+
+    .services p {
+        margin-bottom: clamp(2rem, 5vw, 4rem);
+    }
+}
 
 @media screen and (width >= 1200px) {
     .benefits__txt {
