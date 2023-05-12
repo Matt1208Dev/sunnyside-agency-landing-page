@@ -1,4 +1,4 @@
-/* CSS Reset */
+/* Reset CSS */
 *,
 ::before,
 ::after {
@@ -7,15 +7,17 @@
     margin: 0;
 }
 
-/* Elements Style */
+/* Style des éléments */
 html {
     /* COLORS */
     /* Primary */
     --soft-red: hsl(7, 99%, 70%);
     --yellow: hsl(51, 100%, 49%);
-    --dark-desaturated-cyan: hsl(167, 40%, 24%); /* graphic design text */
+    /* --dark-desaturated-cyan: hsl(167, 40%, 24%); */
+    --dark-desaturated-cyan: hsl(168, 45%, 32%); /* graphic design text */
     --dark-blue: hsl(198, 62%, 26%); /* photography text */
     --dark-moderate-cyan: hsl(168, 34%, 41%); /* footer */
+    --light-desatured-cyan: hsl(167, 44%, 70%);
     /* Neutral */
     --very-dark-desaturated-blue: hsl(212, 27%, 19%);
     --very-dark-grayish-blue: hsl(213, 9%, 39%);
@@ -84,6 +86,11 @@ a {
     text-decoration: none;
 }
 
+picture > img {
+    display: flex;
+}
+
+/* Boutons-liens */
 .btn {
     position: relative;
     font-family: var(--fraunces);
@@ -95,6 +102,7 @@ a {
     z-index: 1;
 }
 
+/* Animation au survol des boutons-liens */
 .btn::after {
     content: "";
     width: 100%;
@@ -112,10 +120,12 @@ a {
     opacity: 1;
 }
 
+/* Variante bouton jaune */
 .btn-yellow::after {
     background-color: var(--yellow);
 }
 
+/* Variante bouton rouge */
 .btn-red::after {
     background-color: var(--soft-red);
 }
@@ -141,6 +151,7 @@ a {
     width: clamp(7.875rem, 15vw, 10.625rem); /* 126px / 170px */
 }
 
+/* Style des liens */
 .navlink {
     font-family: var(--barlow);
     text-decoration: none;
@@ -148,6 +159,7 @@ a {
     margin-inline: 1.5rem;
 }
 
+/* Bouton call to action (contact) */
 .cta {
     position: relative;
     z-index: 0;
@@ -175,10 +187,12 @@ a {
     color: var(--white);
 }
 
+/* Bouton menu mobile */
 .toggle-menu-btn {
     cursor: pointer;
 }
 
+/* Conteneru principal */
 .main-container {
     width: 100%;
 }
@@ -210,7 +224,10 @@ a {
     object-fit: cover;
 }
 
-.benefits, .our-team, .services {
+/* Layouts des sections benefits, our-team et services */
+.benefits,
+.our-team,
+.services {
     display: flex;
 }
 
@@ -235,22 +252,26 @@ a {
     padding-inline: 0.9rem;
 }
 
-.benefits__img, .our-team__img {
+.benefits__img,
+.our-team__img {
     flex-grow: 1;
     max-width: 720px;
     height: auto;
     object-fit: cover;
 }
 
-.benefits img, .our-team img {
+.benefits img,
+.our-team img {
     width: 100%;
 }
 
-.our-team, .services {
+.our-team,
+.services {
     flex-direction: column;
     align-items: center;
 }
 
+/* Section Services */
 .services__design,
 .services__photography {
     height: 100%;
@@ -270,6 +291,8 @@ a {
 .services__photography > * {
     color: var(--dark-blue);
 }
+
+/* Background de la section services */
 .services__design {
     background-image: url(./images/desktop/image-graphic-design.jpg);
 }
@@ -277,6 +300,7 @@ a {
     background-image: url(./images/desktop/image-photography.jpg);
 }
 
+/* Testimonials */
 .testimonials {
     min-height: 48.5rem;
     display: flex;
@@ -287,13 +311,12 @@ a {
 
 .testimonials h3 {
     text-transform: uppercase;
-    font-size: clamp(1rem, 4vw,1.3rem);
+    font-size: clamp(1rem, 4vw, 1.3rem);
     color: var(--grayish-blue);
     letter-spacing: 5px;
     margin-block: 1rem;
 }
 
-/* Testimonials */
 .cards-container {
     display: flex;
     flex-direction: row;
@@ -301,9 +324,10 @@ a {
     justify-content: center;
 }
 
+/* Style des cartes */
 .card {
     width: 375px;
-    height: 375px;
+    min-height: 375px;
     padding-inline: 1.5rem;
     /* margin-top: 0.5rem; */
     display: flex;
@@ -323,6 +347,7 @@ a {
     margin-bottom: 0;
 }
 
+/* Encadré client */
 .client {
     margin-block: clamp(1.5rem, 3vw, 4rem);
 }
@@ -349,21 +374,83 @@ a {
     height: auto;
 }
 
-/* Attribution */
-.attribution {
-    font-size: 11px;
-    text-align: center;
-}
-.attribution a {
-    color: hsl(228, 45%, 44%);
+/* Footer */
+.footer {
+    height: 21.875rem; /* 350px */
+    padding-block: 4rem; /* 64px */
+    background-color: var(--light-desatured-cyan);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
+/* Logo Sunnyside */
+.footer .logo-box {
+    width: 11.5rem;
+    padding-bottom: 2rem;
+}
+
+.footer .logo-box path {
+    fill: var(--dark-desaturated-cyan);
+}
+
+/* Liens du Footer */
+.footer .nav-links {
+    width: 23.4375rem;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5rem;
+}
+
+.footer .link {
+    font-family: var(--barlow);
+    color: var(--dark-desaturated-cyan);
+    transition: color 0.2s ease-out;
+}
+
+.footer .link:hover {
+    color: var(--white);
+}
+
+/* Réseaux sociaux */
+.social-links {
+    width: 11.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-link {
+    cursor: pointer;
+}
+
+.social-link path {
+    transition: fill 0.2s ease-out;
+}
+
+.social-link:hover path {
+    fill: var(--white);
+}
+
+/* Attribution */
+.attribution {
+    font-size: 0.9rem;
+    text-align: center;
+    color: hsl(228, 45%, 44%);
+    padding-block: 0.5rem;
+}
+.attribution a {
+    font-size: 0.9rem;
+}
+
+/* DEVICES <= 720px */
 @media screen and (width <= 720px) {
     .benefits {
         flex-direction: column-reverse;
     }
 }
 
+/* DEVICES < 1024px */
 @media screen and (width < 1024px) {
     nav {
         perspective: 900px;
@@ -408,8 +495,17 @@ a {
     nav .cta {
         background-color: var(--yellow);
     }
+
+    .cta:hover {
+        background-color: var(--yellow);
+    }
+
+    .cta:hover a {
+        color: unset;
+    }
 }
 
+/* DEVICES >= 1024px */
 @media screen and (width >= 1024px) {
     .toggle-menu-btn {
         display: none;
@@ -419,26 +515,30 @@ a {
         top: 12.5rem; /* 200px */
     }
 
-    .benefits, .our-team, .services {
+    .benefits,
+    .our-team,
+    .services {
         flex-direction: row;
     }
 
-    .benefits__txt, 
+    .benefits__txt,
     .benefits__img,
     .our-team__txt,
-    .our-team__img
+    .our-team__img,
     .services__design,
     .services__photography {
         flex-basis: 512px;
         flex-grow: 1;
     }
 
-    .benefits__txt, .our-team__txt {
+    .benefits__txt,
+    .our-team__txt {
         /* width: 50%; */
-        padding-inline: 6.75rem; /* 108px */ 
+        padding-inline: 6.75rem; /* 108px */
     }
-    
-    .benefits__txt, .our-team__txt {
+
+    .benefits__txt,
+    .our-team__txt {
         align-items: start;
     }
 
@@ -468,6 +568,7 @@ a {
     }
 }
 
+/* DEVICES >= 1200px */
 @media screen and (width >= 1200px) {
     .benefits__txt {
         /* width: 50%; */
